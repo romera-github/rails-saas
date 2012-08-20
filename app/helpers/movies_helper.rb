@@ -5,7 +5,7 @@ module MoviesHelper
   end
 
 
-  def is_sort_target(header, value)
+  def es_ordenable(header, value)
     return '' if value.nil?
     class_name = value.to_s + '_cabecera'
     (header == class_name) ? 'hilite' : ''
