@@ -79,24 +79,24 @@ class MoviesController < ApplicationController
 
     #Store our sort order and ratings checkboxes in session data.
     if !@orden.nil?
-      session[:orden] = @orden
+      session[:order] = @orden
     end
-    if !@ratings_hash.nil?
-      session[:ratings] = @ratings_hash
+    if !@ratings_tabla.nil?
+      session[:ratings] = @ratings_tabla
     end
 
   end
 
   #Get our sort_order. Use value from params if !nil, otherwise attempt to use session data.
   def _get_sort_order
-    if !params[:orden].nil?
-      return params[:orden]    
+    if !params[:order].nil?
+      return params[:order]    
     end
-    if !session[:orden].nil?
-      @redirect_required = true
-      order = session[:orden]
-      session.delete(:orden)
-      order
+    if !session[:order].nil?
+      @redirige = true
+      order = session[:order]
+      session.delete(:order)
+      
     end
   end
 
@@ -106,7 +106,7 @@ class MoviesController < ApplicationController
       return params[:ratings]
     end
     if !session[:ratings].nil?
-      @redirect_required = true
+      @redirige = true
       ratings = session[:ratings]
       session.delete(:ratings)
       ratings
