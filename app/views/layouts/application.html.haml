@@ -7,8 +7,6 @@
   %body
     %h1.title Rotten Potatoes!
     #main
-
-    
       - if flash[:notice]
         #notice.message= flash[:notice]
       - elsif flash[:warning]
@@ -16,4 +14,4 @@
 
       = yield
       
-    = javascript_include_tag 'application'      
+    = javascript_include_tag 'application'

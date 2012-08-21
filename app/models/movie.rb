@@ -1,9 +1,5 @@
 class Movie < ActiveRecord::Base
-
-  @@ratings = ['G', 'PG', 'PG-13', 'R']
-
-  def self.get_ratings
-    ratings
+  def self.all_ratings
+    %w(G PG PG-13 NC-17 R)
   end
-
 end

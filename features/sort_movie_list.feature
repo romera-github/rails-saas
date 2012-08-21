@@ -1,12 +1,15 @@
 Feature: display the list of movies ordered by date or title
  
+
   As I want to order my movies
   So that I can quickly access them
   I want to see them ordered by title or by date
 
+
 Background: I have already added movies to the database
   
   Given I have added these movies:
+
   | title                   | rating | release_date |
   | 2001: A Space Odyssey   | G      | 6-Apr-1968   |
   | Aladdin                 | G      | 25-Nov-1992  |
@@ -18,19 +21,21 @@ Background: I have already added movies to the database
   | The Incredibles         | PG     | 5-Nov-2004   |
   | The Terminator          | R      | 26-Oct-1984  |
   | When Harry Met Sally    | R      | 21-Jul-1989  |
+  
   And I am on the RottenPotatoes home page
   
+  
 Scenario: sort movies alphabetically
-  When I check the following ratings: G, PG, PG-13, NC-17, R
+  When I check the following ratings: "G, PG, PG-13, NC-17, R"
     And I press "ratings_submit"
-    And I follow "order_header"
   Then I should see "Aladdin" before "Amelie"
 
+
 Scenario: sort movies in increasing order of release date
-  When I check the following ratings: G, PG, PG-13, NC-17, R
+  When I check the following ratings: "G, PG, PG-13, NC-17, R"
     And I press "ratings_submit"
     And I follow "release_date_header"
-  Then I should see "1968-06-04 00:00:00 UTC" before "2004-11-05 00:00:00 UTC"
+  Then I should see "1968-04-06 00:00:00 UTC" before "2004-11-05 00:00:00 UTC"
 
 
 
